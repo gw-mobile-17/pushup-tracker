@@ -9,17 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        print("view did load!")
+        
+        //pushUpRecord.text = "Pushup Record: 50"
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func trackButtonPressed(_ sender: Any) {
+        print("track pushups pressed")
     }
-
-
+    
 }
 
