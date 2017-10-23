@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     
     @IBAction func trackButtonPressed(_ sender: Any) {
         print("track pushups pressed")
+        
+        performSegue(withIdentifier: "pushUpSegue", sender: self)
     }
     
 }

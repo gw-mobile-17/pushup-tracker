@@ -17,31 +17,116 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmt-7m-6hG">
-                                <rect key="frame" x="108" y="112" width="158" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Track Pushups"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmt-7m-6hG">
+                                <rect key="frame" x="99.5" y="217" width="176" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MfD-v1-gs3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Track Pushups">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="trackButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aFs-cU-GuL"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pushup Record: 25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUl-v1-iIz">
-                                <rect key="frame" x="80" y="594" width="215" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qgn-RT-MZ4">
+                                <rect key="frame" x="112" y="287" width="151" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="View History">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="XFi-sd-qJv" kind="show" id="tQg-DY-Ldy"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pushup Record: 25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUl-v1-iIz">
+                                <rect key="frame" x="88.5" y="431" width="198" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pushup" translatesAutoresizingMaskIntoConstraints="NO" id="0Rj-5J-pnG">
+                                <rect key="frame" x="20" y="519" width="125" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="ADN-r0-u1c"/>
+                                    <constraint firstAttribute="width" constant="125" id="euh-gR-IVQ"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pushup2" translatesAutoresizingMaskIntoConstraints="NO" id="xWy-hI-pGY">
+                                <rect key="frame" x="244" y="84" width="151" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="151" id="7i0-pS-cCN"/>
+                                    <constraint firstAttribute="height" constant="72" id="jj9-RZ-TCv"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.31035277562111802" green="0.17074679736024845" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0Rj-5J-pnG" secondAttribute="bottom" constant="20" id="5uH-HS-8VL"/>
+                            <constraint firstItem="kmt-7m-6hG" firstAttribute="top" secondItem="xWy-hI-pGY" secondAttribute="bottom" constant="61" id="Byb-xe-nh3"/>
+                            <constraint firstItem="kUl-v1-iIz" firstAttribute="top" secondItem="Qgn-RT-MZ4" secondAttribute="bottom" constant="98" id="PmG-OM-tO6"/>
+                            <constraint firstItem="kUl-v1-iIz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vaa-H1-YDS"/>
+                            <constraint firstItem="xWy-hI-pGY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="20" id="XJM-dt-c98"/>
+                            <constraint firstItem="0Rj-5J-pnG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="ewz-DP-pyI"/>
+                            <constraint firstItem="kmt-7m-6hG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hSp-Rh-uCj"/>
+                            <constraint firstItem="Qgn-RT-MZ4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rIu-6X-tWI"/>
+                            <constraint firstItem="xWy-hI-pGY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="v9d-7X-hFx"/>
+                            <constraint firstItem="Qgn-RT-MZ4" firstAttribute="top" secondItem="kmt-7m-6hG" secondAttribute="bottom" constant="20" id="ygf-eP-cv4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Push Up Tracker" id="3YQ-gj-KZi"/>
+                    <connections>
+                        <segue destination="prv-fE-hFG" kind="show" identifier="pushUpSegue" id="nZK-mt-HLh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="372" y="32.833583208395808"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="Plk-rg-vGU">
+            <objects>
+                <tableViewController id="XFi-sd-qJv" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Oxg-FP-rMb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="VjH-Ee-Hk1">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VjH-Ee-Hk1" id="beJ-zd-oX6">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="XFi-sd-qJv" id="aGW-z7-Hnr"/>
+                            <outlet property="delegate" destination="XFi-sd-qJv" id="Zx9-5J-ch1"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VzH-ws-aMy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1241" y="-323"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hSx-hj-Js4">
+            <objects>
+                <viewController id="prv-fE-hFG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3V5-5l-f02">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="UUz-ZD-Lq6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A6C-sQ-PWi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1209" y="335"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="a2x-P5-Hbi">
@@ -54,7 +139,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="8Zq-Wj-To8"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="rRP-Oj-BQA"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JYQ-tg-fSH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -62,4 +147,8 @@
             <point key="canvasLocation" x="-359" y="44"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pushup" width="250" height="227"/>
+        <image name="pushup2" width="200" height="140"/>
+    </resources>
 </document>
