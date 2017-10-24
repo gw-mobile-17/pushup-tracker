@@ -18,35 +18,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmt-7m-6hG">
-                                <rect key="frame" x="99.5" y="308.5" width="176" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="MfD-v1-gs3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="Track Pushups">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="trackButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aFs-cU-GuL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qgn-RT-MZ4">
-                                <rect key="frame" x="112" y="378.5" width="151" height="46"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="View History">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="XFi-sd-qJv" kind="show" id="tQg-DY-Ldy"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pushup Record: 25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUl-v1-iIz">
-                                <rect key="frame" x="106.5" y="444.5" width="162" height="23"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="4fS-Dt-Cwz">
+                                <rect key="frame" x="99.5" y="264" width="176" height="139"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmt-7m-6hG">
+                                        <rect key="frame" x="0.0" y="0.0" width="176" height="46"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" title="Track Pushups">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="trackButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aFs-cU-GuL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qgn-RT-MZ4">
+                                        <rect key="frame" x="0.0" y="58" width="176" height="46"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" title="View History">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="XFi-sd-qJv" kind="show" id="tQg-DY-Ldy"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pushup Record: 25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUl-v1-iIz">
+                                        <rect key="frame" x="0.0" y="116" width="176" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pushup" translatesAutoresizingMaskIntoConstraints="NO" id="0Rj-5J-pnG">
                                 <rect key="frame" x="20" y="513.5" width="75" height="133.5"/>
                             </imageView>
@@ -58,18 +60,14 @@
                         <constraints>
                             <constraint firstItem="0Rj-5J-pnG" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="20:100" id="0DK-pp-LdF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0Rj-5J-pnG" secondAttribute="bottom" constant="20" id="5uH-HS-8VL"/>
-                            <constraint firstItem="kUl-v1-iIz" firstAttribute="top" secondItem="Qgn-RT-MZ4" secondAttribute="bottom" constant="20" id="PmG-OM-tO6"/>
                             <constraint firstItem="0Rj-5J-pnG" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="20:100" id="QIl-Bu-gnq"/>
-                            <constraint firstItem="kUl-v1-iIz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vaa-H1-YDS"/>
-                            <constraint firstItem="kmt-7m-6hG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="XVF-0F-qXJ"/>
+                            <constraint firstItem="4fS-Dt-Cwz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="at3-38-uVM"/>
                             <constraint firstItem="0Rj-5J-pnG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="ewz-DP-pyI"/>
-                            <constraint firstItem="kmt-7m-6hG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hSp-Rh-uCj"/>
                             <constraint firstAttribute="trailing" secondItem="xWy-hI-pGY" secondAttribute="trailing" constant="20" id="i5D-c2-6ru"/>
                             <constraint firstItem="xWy-hI-pGY" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="20:100" id="l4e-Of-r0R"/>
-                            <constraint firstItem="Qgn-RT-MZ4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rIu-6X-tWI"/>
+                            <constraint firstItem="4fS-Dt-Cwz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="sJH-B1-sX4"/>
                             <constraint firstItem="xWy-hI-pGY" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="20:100" id="uIf-Ku-Zxx"/>
                             <constraint firstItem="xWy-hI-pGY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="v9d-7X-hFx"/>
-                            <constraint firstItem="Qgn-RT-MZ4" firstAttribute="top" secondItem="kmt-7m-6hG" secondAttribute="bottom" constant="20" id="ygf-eP-cv4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -110,16 +108,73 @@
             </objects>
             <point key="canvasLocation" x="1241" y="-323"/>
         </scene>
-        <!--View Controller-->
+        <!--Push Up View Controller-->
         <scene sceneID="hSx-hj-Js4">
             <objects>
-                <viewController id="prv-fE-hFG" sceneMemberID="viewController">
+                <viewController id="prv-fE-hFG" customClass="PushUpViewController" customModule="pushuptracker17" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3V5-5l-f02">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XHn-Vc-6bL">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="kyb-N8-7k4">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V7J-gt-EMZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="53"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kkL-k1-1Fc">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="53"/>
+                                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                <state key="normal" title="Stop">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="stopButtonPressed:" destination="prv-fE-hFG" eventType="touchUpInside" id="l3N-8X-gaC"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKD-43-K9J">
+                                        <rect key="frame" x="0.0" y="53" width="375" height="50.5"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZu-2x-f6N">
+                                        <rect key="frame" x="0.0" y="103.5" width="375" height="499.5"/>
+                                        <color key="backgroundColor" red="0.0" green="0.25098039220000001" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <state key="normal" title="Tap Nose to Start">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="noseButtonPressed:" destination="prv-fE-hFG" eventType="touchUpInside" id="Fxm-Nm-k35"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XHn-Vc-6bL" firstAttribute="leading" secondItem="UUz-ZD-Lq6" secondAttribute="leading" id="CT3-jf-aVO"/>
+                            <constraint firstItem="UUz-ZD-Lq6" firstAttribute="bottom" secondItem="XHn-Vc-6bL" secondAttribute="bottom" id="Qgg-wH-vaD"/>
+                            <constraint firstItem="UUz-ZD-Lq6" firstAttribute="trailing" secondItem="XHn-Vc-6bL" secondAttribute="trailing" id="ade-Bm-rdh"/>
+                            <constraint firstItem="XHn-Vc-6bL" firstAttribute="top" secondItem="UUz-ZD-Lq6" secondAttribute="top" id="r0x-uf-gAF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="UUz-ZD-Lq6"/>
                     </view>
+                    <connections>
+                        <outlet property="counterLabel" destination="pKD-43-K9J" id="10u-Vm-PxN"/>
+                        <outlet property="nameTextField" destination="V7J-gt-EMZ" id="rJ9-J9-8Z7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A6C-sQ-PWi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
