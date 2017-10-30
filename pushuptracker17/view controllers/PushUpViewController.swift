@@ -29,9 +29,13 @@ class PushUpViewController: UIViewController {
 
     @IBAction func stopButtonPressed(_ sender: Any) {
         let numPushups = counter
-        let name = nameTextField.text
+        let name = nameTextField.text!
+        let date = Date()
         
-        //TODO: Persist this data
+        let workout = Workout(name: name, pushupsCompleted: numPushups, startDate: date)
+        
+        let persistance = Persistance()
+        persistance.saveWorkout(workout)
         
         counter = 0
     }
@@ -41,9 +45,16 @@ class PushUpViewController: UIViewController {
     }
 }
 
-extension PushUpViewController:UITextFieldDelegate {
+extension PushUpViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        
+        return true
+    }
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print("range \(range.location) string \(string)")
         
         return true
     }
