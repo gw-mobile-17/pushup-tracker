@@ -34,8 +34,7 @@ class PushUpViewController: UIViewController {
         
         let workout = Workout(name: name, pushupsCompleted: numPushups, startDate: date)
         
-        let persistance = Persistance()
-        persistance.saveWorkout(workout)
+        Persistance.sharedInstance.saveWorkout(workout)
         
         counter = 0
     }

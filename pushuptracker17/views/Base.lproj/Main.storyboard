@@ -13,7 +13,7 @@
         <!--Push Up Tracker-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="pushuptracker17" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MenuViewController" customModule="pushuptracker17" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -73,6 +73,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Push Up Tracker" id="3YQ-gj-KZi"/>
                     <connections>
+                        <outlet property="recordLabel" destination="kUl-v1-iIz" id="TLc-5t-eDa"/>
                         <segue destination="prv-fE-hFG" kind="show" identifier="pushUpSegue" id="nZK-mt-HLh"/>
                     </connections>
                 </viewController>

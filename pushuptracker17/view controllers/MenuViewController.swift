@@ -8,15 +8,23 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MenuViewController: UIViewController {
     
-
+    @IBOutlet weak var recordLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("view did load!")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        //pushUpRecord.text = "Pushup Record: 50"
+        print("view did appear")
+        
+        let record = Persistance.sharedInstance.fetchBestWorkout()?.pushupsCompleted ?? 0
+        recordLabel.text = "Pushup Record: \(record)"
     }
     
     @IBAction func trackButtonPressed(_ sender: Any) {
