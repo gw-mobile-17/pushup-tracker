@@ -38,7 +38,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="XFi-sd-qJv" kind="show" id="tQg-DY-Ldy"/>
+                                            <segue destination="XFi-sd-qJv" kind="show" identifier="scoresSegue" id="tQg-DY-Ldy"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pushup Record: 25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUl-v1-iIz">
@@ -71,7 +71,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Push Up Tracker" id="3YQ-gj-KZi"/>
+                    <navigationItem key="navigationItem" title="Push Up Tracker" id="3YQ-gj-KZi">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="xbg-Xj-krl">
+                            <connections>
+                                <action selector="shareButtonPressed:" destination="BYZ-38-t0r" id="qFg-aM-2HL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="recordLabel" destination="kUl-v1-iIz" id="TLc-5t-eDa"/>
                         <segue destination="prv-fE-hFG" kind="show" identifier="pushUpSegue" id="nZK-mt-HLh"/>
@@ -81,16 +87,16 @@
             </objects>
             <point key="canvasLocation" x="371.25" y="32.74647887323944"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Scores Table View Controller-->
         <scene sceneID="Plk-rg-vGU">
             <objects>
-                <tableViewController id="XFi-sd-qJv" sceneMemberID="viewController">
+                <tableViewController id="XFi-sd-qJv" customClass="ScoresTableViewController" customModule="pushuptracker17" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Oxg-FP-rMb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="VjH-Ee-Hk1">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="scoreCell" id="VjH-Ee-Hk1">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VjH-Ee-Hk1" id="beJ-zd-oX6">
@@ -99,6 +105,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="XFi-sd-qJv" id="aGW-z7-Hnr"/>
                             <outlet property="delegate" destination="XFi-sd-qJv" id="Zx9-5J-ch1"/>

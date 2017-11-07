@@ -33,5 +33,25 @@ class MenuViewController: UIViewController {
         performSegue(withIdentifier: "pushUpSegue", sender: self)
     }
     
+    @IBAction func shareButtonPressed(_ sender: Any) {
+        let pushupRecord = Persistance.sharedInstance.fetchBestWorkout()?.pushupsCompleted ?? 0
+        
+        let textToShare = "Check out my push up record: \(pushupRecord)!"
+        
+        let activityViewController = UIActivityViewController(activityItems: [textToShare], applicationActivities: nil)
+        
+        present(activityViewController, animated: true, completion: nil)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "scoresSegue" {
+            let workouts = Persistance.sharedInstance.fetchWorkouts()
+            
+            let destinationViewController = segue.destination as? ScoresTableViewController
+            destinationViewController?.workouts = workouts.sorted(by: { $0.pushupsCompleted > $1.pushupsCompleted })
+        }
+    }
+    
 }
 
