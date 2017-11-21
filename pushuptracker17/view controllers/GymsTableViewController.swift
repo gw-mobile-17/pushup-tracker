@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class GymsTableViewController: UITableViewController {
     
@@ -20,6 +21,8 @@ class GymsTableViewController: UITableViewController {
         //designate self as the receiver of the fetchNearbyGyms callbacks
         gymFinder.delegate = self
         
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+
         gymFinder.fetchNearbyGyms()
     }
 
@@ -50,6 +53,7 @@ extension GymsTableViewController: NearbyGymDelegate {
         
         //update tableview data on the main (UI) thread
         DispatchQueue.main.async {
+            MBProgressHUD.hide(for: self.view, animated: true)
             self.tableView.reloadData()
         }
     }

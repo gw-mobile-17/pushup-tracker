@@ -1,0 +1,6 @@
+framework module Pods_pushuptracker17 {
+  umbrella header "Pods-pushuptracker17-umbrella.h"
+
+  export *
+  module * { export * }
+}
