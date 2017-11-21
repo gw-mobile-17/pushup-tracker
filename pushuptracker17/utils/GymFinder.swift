@@ -17,6 +17,64 @@ class GymFinder {
     
     var delegate: NearbyGymDelegate?
     
+    //this function parses the JSON using Codable - use this technique for Google Vision API
+    func fetchNearbyGymsUsingCodable(latitude: Double, longitude: Double) {
+        var urlComponents = URLComponents(string: "https://api.foursquare.com/v2/venues/search")!
+        
+        urlComponents.queryItems = [
+            URLQueryItem(name: "client_secret", value: "H20WAGEG5C2YIIP2QJG0CDNMZQ0O0YBECFTUY4ADZQKQCQUS"),
+            URLQueryItem(name: "client_id", value: "KUS3LGMRRJVOP14XPVSVHPHZ5HA00AT40FTIEBSYMWTET40F"),
+            URLQueryItem(name: "v", value: "20171113"),
+            URLQueryItem(name: "ll", value: "\(latitude),\(longitude)"),
+            URLQueryItem(name: "query", value: "gym")
+        ]
+        
+        let url = urlComponents.url!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            //check for valid response with 200 (success)
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                self.delegate?.gymsNotFound()
+                
+                return
+            }
+            
+            //ensure data is non-nil
+            guard let data = data else {
+                self.delegate?.gymsNotFound()
+                
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            let decodedRoot = try? decoder.decode(Root.self, from: data)
+
+            //ensure json structure matches our expections and contains a venues array
+            guard let root = decodedRoot else {
+                self.delegate?.gymsNotFound()
+
+                return
+            }
+            
+            let venues = root.response.venues
+            
+            var gyms = [Gym]()
+            for venue in venues {
+                let gym = Gym(name: venue.name, address: venue.location.formattedAddress.joined(separator: " "), logoUrlString: "")
+                gyms.append(gym)
+            }
+            
+            self.delegate?.gymsFound(gyms: gyms)
+            
+        }
+
+        task.resume()
+    }
+
+    //this function parses the JSON manually - use this technique for Wiki API
     func fetchNearbyGyms(latitude: Double, longitude: Double) {
         
         var urlComponents = URLComponents(string: "https://api.foursquare.com/v2/venues/search")!
@@ -71,9 +129,6 @@ class GymFinder {
         }
         
         task.resume()
-        
-        
-        
     }
     
     func fetchNearbyGyms() {

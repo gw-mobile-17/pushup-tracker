@@ -14,6 +14,7 @@
 		7FAAE4951FBA6DE5004F1339 /* GymsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAAE4941FBA6DE5004F1339 /* GymsTableViewController.swift */; };
 		7FAAE4971FBA79A2004F1339 /* GymTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAAE4961FBA79A2004F1339 /* GymTableViewCell.swift */; };
 		7FAAE4991FBA7CE4004F1339 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAAE4981FBA7CE4004F1339 /* UIImageViewExtension.swift */; };
+		7FBAAA8E1FC3B5EC00618AE9 /* FoursquareStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAAA8D1FC3B5EC00618AE9 /* FoursquareStructs.swift */; };
 		7FD9ABB61F95807400664F2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD9ABB51F95807400664F2F /* AppDelegate.swift */; };
 		7FD9ABB81F95807400664F2F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD9ABB71F95807400664F2F /* MenuViewController.swift */; };
 		7FD9ABBB1F95807400664F2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FD9ABB91F95807400664F2F /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		7FAAE4941FBA6DE5004F1339 /* GymsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymsTableViewController.swift; sourceTree = "<group>"; };
 		7FAAE4961FBA79A2004F1339 /* GymTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymTableViewCell.swift; sourceTree = "<group>"; };
 		7FAAE4981FBA7CE4004F1339 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		7FBAAA8D1FC3B5EC00618AE9 /* FoursquareStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareStructs.swift; sourceTree = "<group>"; };
 		7FD9ABB21F95807400664F2F /* pushuptracker17.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pushuptracker17.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD9ABB51F95807400664F2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FD9ABB71F95807400664F2F /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,14 @@
 				27FE206CAF082FE07C1CAE11 /* Pods_pushuptracker17.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7FBAAA8C1FC3B5C200618AE9 /* codable */ = {
+			isa = PBXGroup;
+			children = (
+				7FBAAA8D1FC3B5EC00618AE9 /* FoursquareStructs.swift */,
+			);
+			path = codable;
 			sourceTree = "<group>";
 		};
 		7FD9ABA91F95807300664F2F = {
@@ -131,6 +141,7 @@
 		7FDEF1A01FA7E6AE001A8366 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				7FBAAA8C1FC3B5C200618AE9 /* codable */,
 				7FDEF19C1FA7E430001A8366 /* Workout.swift */,
 				7FAAE4901FBA6442004F1339 /* Gym.swift */,
 			);
@@ -279,6 +290,7 @@
 				7FD9ABB81F95807400664F2F /* MenuViewController.swift in Sources */,
 				7FD9ABB61F95807400664F2F /* AppDelegate.swift in Sources */,
 				7F8101521FB13459005ECE4E /* ScoresTableViewController.swift in Sources */,
+				7FBAAA8E1FC3B5EC00618AE9 /* FoursquareStructs.swift in Sources */,
 				7F05DB1E1F9EBF7000A66B92 /* PushUpViewController.swift in Sources */,
 				7FAAE4951FBA6DE5004F1339 /* GymsTableViewController.swift in Sources */,
 				7FAAE4911FBA6442004F1339 /* Gym.swift in Sources */,

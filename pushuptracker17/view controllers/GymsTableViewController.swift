@@ -23,7 +23,7 @@ class GymsTableViewController: UITableViewController {
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
 
-        gymFinder.fetchNearbyGyms(latitude: 38.900140, longitude: -77.049447)
+        gymFinder.fetchNearbyGymsUsingCodable(latitude: 38.900140, longitude: -77.049447)
     }
 
     // MARK: - Table view data source
