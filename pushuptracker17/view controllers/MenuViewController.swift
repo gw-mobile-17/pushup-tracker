@@ -14,22 +14,16 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("view did load!")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        print("view did appear")
         
         let record = Persistance.sharedInstance.fetchBestWorkout()?.pushupsCompleted ?? 0
         recordLabel.text = "Pushup Record: \(record)"
     }
     
     @IBAction func trackButtonPressed(_ sender: Any) {
-        print("track pushups pressed")
-        
         performSegue(withIdentifier: "pushUpSegue", sender: self)
     }
     

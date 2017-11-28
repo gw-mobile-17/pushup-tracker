@@ -13,6 +13,7 @@ class GymsTableViewController: UITableViewController {
     
     var gyms = [Gym]()
     let gymFinder = GymFinder()
+    let locationFinder = LocationFinder()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +21,19 @@ class GymsTableViewController: UITableViewController {
         //designate self as the receiver of the fetchNearbyGyms callbacks
         gymFinder.delegate = self
         
-        fetchGyms()
+        locationFinder.delegate = self
+        
+        findLocation()
     }
     
-    func fetchGyms() {
+    func findLocation() {
         MBProgressHUD.showAdded(to: self.view, animated: true)
+        locationFinder.findLocation()
+    }
+    
+    func fetchGyms(latitude: Double, longitude: Double) {
         
-        gymFinder.fetchNearbyGymsUsingCodable(latitude: 38.900140, longitude: -77.049447)
+        gymFinder.fetchNearbyGymsUsingCodable(latitude: latitude, longitude: longitude)
     }
 
     // MARK: - Table view data source
@@ -46,6 +53,21 @@ class GymsTableViewController: UITableViewController {
         cell.gymLogoImageView.downloadFrom(urlString: gym.logoUrlString)
 
         return cell
+    }
+}
+
+//adhere to the LocationFinderDelegate protocol
+extension GymsTableViewController: LocationFinderDelegate {
+    func locationFound(latitude: Double, longitude: Double) {
+        fetchGyms(latitude: latitude, longitude: longitude)
+    }
+    
+    func locationNotFound() {
+        DispatchQueue.main.async {
+            MBProgressHUD.hide(for: self.view, animated: true)
+        }
+        
+        print("location not found")
     }
 }
 
@@ -70,7 +92,7 @@ extension GymsTableViewController: NearbyGymDelegate {
             switch reason {
             case .networkRequestFailed:
                 let retryAction = UIAlertAction(title: "Retry", style: .default, handler: { (action) in
-                    self.fetchGyms()
+                    self.findLocation()
                 })
                 
                 let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
