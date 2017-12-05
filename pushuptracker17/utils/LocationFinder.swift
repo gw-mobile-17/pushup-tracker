@@ -36,12 +36,17 @@ class LocationFinder: NSObject {
     }
     
     func startTimer() {
-        timer.invalidate()
+        cancelTimer()
+        
         timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: false, block: { (timer) in
             //code that will run 10 seconds later
             self.locationManager.stopUpdatingLocation()
             self.delegate?.locationNotFound(reason: .timeout)
         })
+    }
+    
+    func cancelTimer() {
+        timer.invalidate()
     }
     
     func findLocation() {
@@ -53,6 +58,7 @@ class LocationFinder: NSObject {
         case .denied, .restricted:
             delegate?.locationNotFound(reason: .noPermission)
         case .authorizedWhenInUse:
+            startTimer()
             locationManager.requestLocation()
         case .authorizedAlways:
             //do nothing - app can't get to this state
@@ -64,7 +70,8 @@ class LocationFinder: NSObject {
 extension LocationFinder: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        timer.invalidate()
+        cancelTimer()
+        
         manager.stopUpdatingLocation()
         
         let location = locations.first!
@@ -73,6 +80,7 @@ extension LocationFinder: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
+            startTimer()
             locationManager.requestLocation()
         }
         else {
@@ -81,7 +89,7 @@ extension LocationFinder: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        timer.invalidate()
+        cancelTimer()
         
         print(error.localizedDescription)
         delegate?.locationNotFound(reason: .error)
