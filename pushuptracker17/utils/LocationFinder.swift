@@ -11,19 +11,37 @@ import CoreLocation
 
 protocol LocationFinderDelegate {
     func locationFound(latitude: Double, longitude: Double)
-    func locationNotFound()
+    func locationNotFound(reason: LocationFinder.FailureReason)
 }
 
 class LocationFinder: NSObject {
+    
+    enum FailureReason: String {
+        case noPermission = "Location permission not available"
+        case timeout = "It took too long to find your location"
+        case error = "Error finding location"
+    }
+    
     let locationManager = CLLocationManager()
     
     var delegate: LocationFinderDelegate?
+    
+    var timer = Timer()
     
     override init() {
         super.init()
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+    }
+    
+    func startTimer() {
+        timer.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: false, block: { (timer) in
+            //code that will run 10 seconds later
+            self.locationManager.stopUpdatingLocation()
+            self.delegate?.locationNotFound(reason: .timeout)
+        })
     }
     
     func findLocation() {
@@ -33,7 +51,7 @@ class LocationFinder: NSObject {
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         case .denied, .restricted:
-            delegate?.locationNotFound()
+            delegate?.locationNotFound(reason: .noPermission)
         case .authorizedWhenInUse:
             locationManager.requestLocation()
         case .authorizedAlways:
@@ -45,6 +63,10 @@ class LocationFinder: NSObject {
 
 extension LocationFinder: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        timer.invalidate()
+        manager.stopUpdatingLocation()
+        
         let location = locations.first!
         delegate?.locationFound(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
     }
@@ -54,12 +76,14 @@ extension LocationFinder: CLLocationManagerDelegate {
             locationManager.requestLocation()
         }
         else {
-            delegate?.locationNotFound()
+            delegate?.locationNotFound(reason: .noPermission)
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        timer.invalidate()
+        
         print(error.localizedDescription)
-        delegate?.locationNotFound()
+        delegate?.locationNotFound(reason: .error)
     }
 }

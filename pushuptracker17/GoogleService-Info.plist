@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>461610412724-ck8gs5n43pm69u5lurdm6q2tooodc256.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.461610412724-ck8gs5n43pm69u5lurdm6q2tooodc256</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDL4bBwyV28x8BAxzriZ-Os6K2iwO0fnUw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>461610412724</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>edu.gwu.pushuptracker17</string>
+	<key>PROJECT_ID</key>
+	<string>mypushupsapp</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mypushupsapp.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:461610412724:ios:020437f86edfc969</string>
+	<key>DATABASE_URL</key>
+	<string>https://mypushupsapp.firebaseio.com</string>
+</dict>
+</plist>

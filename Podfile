@@ -7,5 +7,7 @@ target 'pushuptracker17' do
 
   # Pods for pushuptracker17
   pod 'MBProgressHUD', '~> 1.1.0'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
 
 end

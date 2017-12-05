@@ -62,12 +62,13 @@ extension GymsTableViewController: LocationFinderDelegate {
         fetchGyms(latitude: latitude, longitude: longitude)
     }
     
-    func locationNotFound() {
+    func locationNotFound(reason: LocationFinder.FailureReason) {
         DispatchQueue.main.async {
             MBProgressHUD.hide(for: self.view, animated: true)
+            //TODO pop up an alert controller with message
+            print(reason.rawValue)
+            
         }
-        
-        print("location not found")
     }
 }
 

@@ -23,6 +23,9 @@ class PushUpViewController: UIViewController {
         super.viewDidLoad()
         
         nameTextField.delegate = self
+        
+        //for testing, fetch from firebase
+        FirebasePersistance.sharedInstance.fetchWorkouts()
 
         // Do any additional setup after loading the view.
     }
@@ -35,6 +38,7 @@ class PushUpViewController: UIViewController {
         let workout = Workout(name: name, pushupsCompleted: numPushups, startDate: date)
         
         Persistance.sharedInstance.saveWorkout(workout)
+        FirebasePersistance.sharedInstance.saveWorkout(workout)
         
         counter = 0
     }
